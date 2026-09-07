@@ -156,45 +156,107 @@ def normalize(body_text: str, search_date: Date, min_minutes: int = 60) -> list[
 
 async def _fill_date_input(page, date_string: str) -> None:
     """
-    Find the visible input associated with "Date You Are Looking For".
+    Find and fill WebTrac's "Date You Are Looking For" control.
 
-    Uses several fallbacks because WebTrac markup can change while the visible
-    wording remains stable.
+    WebTrac often keeps Search Filters collapsed on the result view, so the
+    date input can exist but not be visible until that panel is expanded.
     """
-    target = datetime.strptime(date_string, "%Y-%m-%d").strftime("%m/%d/%Y")
+    target_text = datetime.strptime(date_string, "%Y-%m-%d").strftime("%m/%d/%Y")
 
-    # Best case: accessible label is wired correctly.
+    async def try_fill() -> bool:
+        # 1) Best case: accessible label is wired correctly.
+        try:
+            loc = page.get_by_label("Date You Are Looking For", exact=False)
+            if await loc.count():
+                el = loc.first
+                typ = (await el.get_attribute("type") or "").lower()
+                await el.fill(date_string if typ == "date" else target_text)
+                return True
+        except Exception:
+            pass
+
+        # 2) Common date-like inputs.
+        selectors = [
+            'input[type="date"]:visible',
+            'input[name*="date" i]:visible',
+            'input[id*="date" i]:visible',
+            'input[placeholder*="date" i]:visible',
+        ]
+        for selector in selectors:
+            try:
+                loc = page.locator(selector)
+                if await loc.count():
+                    el = loc.first
+                    typ = (await el.get_attribute("type") or "").lower()
+                    await el.fill(date_string if typ == "date" else target_text)
+                    return True
+            except Exception:
+                pass
+
+        # 3) Inspect nearby visible text.
+        inputs = page.locator("input:visible")
+        count = await inputs.count()
+        for i in range(count):
+            el = inputs.nth(i)
+            try:
+                nearby = await el.evaluate(
+                    """el => {
+                        let n = el;
+                        for (let i=0; i<6 && n; i++, n=n.parentElement) {
+                          const t = (n.innerText || '').trim();
+                          if (t.includes('Date You Are Looking For')) return t;
+                        }
+                        return '';
+                    }"""
+                )
+                if "Date You Are Looking For" in nearby:
+                    typ = (await el.get_attribute("type") or "").lower()
+                    await el.fill(date_string if typ == "date" else target_text)
+                    return True
+            except Exception:
+                continue
+        return False
+
+    # Try the currently visible page first.
+    if await try_fill():
+        return
+
+    # WebTrac commonly collapses Search Filters on result pages.
+    for locator in (
+        page.get_by_role("button", name=re.compile(r"Search Filters", re.I)),
+        page.get_by_text(re.compile(r"Search Filters", re.I)),
+    ):
+        try:
+            if await locator.count():
+                await locator.first.click()
+                await page.wait_for_timeout(500)
+                if await try_fill():
+                    return
+        except Exception:
+            pass
+
+    # Emit useful diagnostics into the GitHub Actions log if WebTrac changes.
     try:
-        loc = page.get_by_label("Date You Are Looking For", exact=False)
-        if await loc.count():
-            await loc.first.fill(target)
-            return
+        print("DEBUG current URL:", page.url)
+        print("DEBUG page title:", await page.title())
+        inputs = page.locator("input")
+        print("DEBUG total inputs:", await inputs.count())
+        for i in range(min(await inputs.count(), 25)):
+            el = inputs.nth(i)
+            print(
+                "DEBUG input",
+                i,
+                "type=", await el.get_attribute("type"),
+                "name=", await el.get_attribute("name"),
+                "id=", await el.get_attribute("id"),
+                "placeholder=", await el.get_attribute("placeholder"),
+                "visible=", await el.is_visible(),
+            )
     except Exception:
         pass
 
-    # Fallback: inspect visible inputs and their nearby text.
-    inputs = page.locator("input:visible")
-    count = await inputs.count()
-    for i in range(count):
-        el = inputs.nth(i)
-        try:
-            nearby = await el.evaluate(
-                """el => {
-                    let n = el;
-                    for (let i=0; i<4 && n; i++, n=n.parentElement) {
-                      const t = (n.innerText || '').trim();
-                      if (t.includes('Date You Are Looking For')) return t;
-                    }
-                    return '';
-                }"""
-            )
-            if "Date You Are Looking For" in nearby:
-                await el.fill(target)
-                return
-        except Exception:
-            continue
-
     raise RuntimeError("Could not locate the Plymouth date search input.")
+
 
 async def fetch_live_body(search_date: str, timeout_ms: int = 45000) -> str:
     try:
