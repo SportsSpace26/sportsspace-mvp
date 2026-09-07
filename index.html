@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SportsSpace Twin Cities — Find Open Ice</title>
+<style>
+:root {
+  --bg:#f4f7fb; --card:#fff; --ink:#152131; --muted:#66758a; --line:#dce4ee;
+  --brand:#164e63; --brand2:#0f766e; --good:#16784b; --warn:#9a6700; --soft:#eef5f7;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(115deg,#10364a,#176b6a);color:white;padding:22px 18px 74px}
+.topbar{max-width:1120px;margin:auto;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.logo{font-size:25px;font-weight:850;letter-spacing:-.6px} .logo small{font-size:12px;font-weight:650;opacity:.72;margin-left:8px}
+.pill{font-size:12px;border:1px solid rgba(255,255,255,.35);padding:7px 10px;border-radius:999px}
+.hero{max-width:1120px;margin:42px auto 0}
+.hero h1{font-size:46px;line-height:1.02;letter-spacing:-1.6px;margin:0 0 12px;max-width:720px}
+.hero p{font-size:18px;line-height:1.5;color:rgba(255,255,255,.83);max-width:720px;margin:0}
+main{max-width:1120px;margin:-46px auto 60px;padding:0 18px}
+.search{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 14px 38px rgba(15,35,55,.11)}
+.grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:12px}
+label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin:0 0 6px}
+input,select,button{font:inherit}
+input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.actions{display:flex;gap:10px;margin-top:13px;align-items:center;flex-wrap:wrap}
+button,.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:var(--brand);color:#fff} .secondary{background:#edf3f7;color:var(--brand)}
+.check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-left:auto}
+.check input{width:auto}
+.snapshot{font-size:12px;color:var(--muted);margin-top:10px}
+.summary{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:28px 0 12px}
+.summary h2{margin:0;font-size:24px;letter-spacing:-.4px} .summary span{color:var(--muted);font-size:13px}
+.results{display:grid;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:1.6fr 1fr .7fr auto;gap:14px;align-items:center}
+.venue{font-weight:850;font-size:17px} .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.time{font-weight:800} .date{font-size:13px;color:var(--muted);margin-top:3px}
+.price{font-size:20px;font-weight:900} .per{font-size:11px;color:var(--muted)}
+.badge{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:850;padding:4px 7px;border-radius:999px;background:var(--soft);color:var(--brand);margin-left:6px}
+.badge.small{background:#fff3cd;color:#725b00}
+.linkbtn{background:#eef6f6;color:#0e625f;white-space:nowrap}
+.empty{background:white;border:1px dashed var(--line);padding:28px;border-radius:14px;color:var(--muted);text-align:center}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:34px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.panel h3{margin:0 0 6px} .panel p{color:var(--muted);line-height:1.5;font-size:14px}
+.source{padding:12px 0;border-top:1px solid var(--line)} .source:first-of-type{border-top:0}
+.source strong{display:block} .source small{color:var(--muted)}
+.status{font-size:11px;font-weight:850;margin-top:5px} .status.live{color:var(--good)} .status.ready{color:var(--brand2)} .status.partial{color:var(--warn)}
+.alert-box{background:linear-gradient(145deg,#f7fbfb,#edf7f4)}
+.alert-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.saved{margin-top:12px;padding:10px;border-radius:10px;background:white;border:1px solid var(--line);font-size:12px;color:var(--muted);display:none}
+.footer{color:var(--muted);font-size:12px;margin-top:28px;line-height:1.5}
+@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}.card{grid-template-columns:1fr 1fr}.card .linkbtn{grid-column:1/-1;text-align:center}.two{grid-template-columns:1fr}.hero h1{font-size:38px}}
+@media(max-width:520px){.grid,.alert-row{grid-template-columns:1fr}.card{grid-template-columns:1fr}.check{margin-left:0}header{padding-bottom:62px}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="logo">SportsSpace <small>TWIN CITIES MVP</small></div>
+    <div class="pill">Ice first • Multi-sport later</div>
+  </div>
+  <div class="hero">
+    <h1>Find open ice without checking ten rink websites.</h1>
+    <p>Search public Twin Cities ice availability in one place. This is a working validation prototype — inventory links back to the original facility or listing source.</p>
+  </div>
+</header>
+<main>
+<section class="search">
+  <div class="grid">
+    <div><label>Date</label><input type="date" id="date" value="2026-09-13"></div>
+    <div><label>Start after</label><select id="startAfter"></select></div>
+    <div><label>Start before</label><select id="startBefore"></select></div>
+    <div><label>Max price</label><select id="maxPrice"><option value="9999">Any price</option><option value="175">$175</option><option value="200">$200</option><option value="235">$235</option><option value="260">$260</option><option value="300">$300</option><option value="350">$350</option></select></div>
+    <div><label>City</label><select id="city"><option value="">All cities</option></select></div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="searchBtn">Find ice</button>
+    <button class="secondary" id="resetBtn">Show all</button>
+    <label class="check"><input id="fullOnly" type="checkbox"> Regulation/full sheet only</label>
+  </div>
+  <div class="snapshot">Prototype inventory snapshot: September 7, 2026. Always confirm availability with the source before making plans.</div>
+</section>
+
+<div class="summary"><div><h2>Available ice</h2><span id="countText"></span></div><span id="sortText">Sorted by date & time</span></div>
+<section id="results" class="results"></section>
+
+<section class="two">
+  <div class="panel">
+    <h3>Coverage pipeline</h3>
+    <p>The MVP deliberately separates sources we can ingest now from rink calendars that still require a direct integration or facility feed.</p>
+    <div id="coverage"></div>
+  </div>
+  <div class="panel alert-box">
+    <h3>🔔 Save an ice alert</h3>
+    <p>For MVP testing, alerts save on this device. The production version would email or text when matching inventory appears.</p>
+    <div class="alert-row">
+      <div><label>Email</label><input id="email" type="email" placeholder="coach@example.com"></div>
+      <div><label>Preferred area</label><input id="area" placeholder="Edina / 15 miles"></div>
+      <div><label>Days / times</label><input id="window" placeholder="Tue–Thu 6–9 PM"></div>
+      <div><label>Max $ / hour</label><input id="alertPrice" type="number" placeholder="250"></div>
+    </div>
+    <div class="actions"><button class="primary" id="saveAlert">Save alert</button></div>
+    <div id="savedAlert" class="saved"></div>
+  </div>
+</section>
+
+<div class="footer">
+  <strong>Validation build, not a booking engine.</strong> The goal is to test whether coaches/team managers repeatedly prefer one normalized search over hunting across separate facility systems. Inventory currently includes public sale listings; direct schedule parsing is the next technical milestone.
+</div>
+</main>
+<script>
+const listings = [{"facility": "Woodbury ICE", "sheet": "Woodbury Ice Rink", "city": "Woodbury", "date": "2026-09-08", "start": "16:30", "end": "17:30", "price": 250, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Bloomington Ice Garden", "sheet": "BIG 2", "city": "Bloomington", "date": "2026-09-08", "start": "16:45", "end": "17:45", "price": 275, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink A", "city": "Minneapolis", "date": "2026-09-08", "start": "17:45", "end": "18:45", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-08", "start": "18:00", "end": "19:00", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Blue Rink", "city": "St. Louis Park", "date": "2026-09-12", "start": "12:00", "end": "13:00", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "North Rink", "city": "Edina", "date": "2026-09-12", "start": "12:30", "end": "13:50", "price": 346, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Blue Rink", "city": "St. Louis Park", "date": "2026-09-12", "start": "13:00", "end": "14:00", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Rosemount Community Center", "sheet": "Rosemount Ice Arena", "city": "Rosemount", "date": "2026-09-13", "start": "07:15", "end": "08:15", "price": 255, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "South Rink", "city": "Edina", "date": "2026-09-13", "start": "08:00", "end": "09:00", "price": 260, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-13", "start": "10:00", "end": "11:20", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-13", "start": "15:30", "end": "16:30", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink A", "city": "Minneapolis", "date": "2026-09-13", "start": "16:00", "end": "17:00", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-13", "start": "16:15", "end": "17:15", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Blue Rink", "city": "St. Louis Park", "date": "2026-09-13", "start": "17:00", "end": "18:00", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "South Rink", "city": "Edina", "date": "2026-09-13", "start": "17:30", "end": "18:50", "price": 346, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-13", "start": "19:00", "end": "20:00", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "South Rink", "city": "Edina", "date": "2026-09-13", "start": "19:00", "end": "20:20", "price": 346, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-13", "start": "20:15", "end": "21:15", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "South Rink", "city": "Edina", "date": "2026-09-13", "start": "20:30", "end": "21:50", "price": 346, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Rosemount Community Center", "sheet": "Rosemount Ice Arena", "city": "Rosemount", "date": "2026-09-14", "start": "14:30", "end": "15:30", "price": 175, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-14", "start": "16:10", "end": "17:10", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-14", "start": "20:50", "end": "21:50", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Polar Ice Arena", "sheet": "Polar Arena", "city": "North St. Paul", "date": "2026-09-19", "start": "14:15", "end": "15:15", "price": 230, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Polar Ice Arena", "sheet": "Polar Arena", "city": "North St. Paul", "date": "2026-09-19", "start": "15:30", "end": "16:30", "price": 230, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-19", "start": "16:30", "end": "17:30", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-20", "start": "08:45", "end": "09:45", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Minnesota Made Ice Center SLP", "sheet": "Red Rink", "city": "St. Louis Park", "date": "2026-09-20", "start": "10:20", "end": "11:20", "price": 160, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": false}, {"facility": "Minnesota Made Ice Center Edina", "sheet": "South Rink", "city": "Edina", "date": "2026-09-20", "start": "18:30", "end": "19:30", "price": 260, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Augsburg University Ice Arena", "sheet": "Rink B", "city": "Minneapolis", "date": "2026-09-20", "start": "19:00", "end": "20:00", "price": 235, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}, {"facility": "Tartan Ice Arena", "sheet": "Tartan Arena", "city": "Oakdale", "date": "2026-09-20", "start": "19:30", "end": "20:30", "price": 230, "source": "Rinkfinder", "source_url": "https://rinkfinder.com/ice-for-sale/", "full_sheet": true}];
+const coverage = [{"name": "Rinkfinder Ice For Sale", "status": "Ingested in this prototype", "grade": "live", "detail": "Public sale inventory from participating Minnesota arenas.", "url": "https://rinkfinder.com/ice-for-sale/"}, {"name": "Plymouth Ice Center", "status": "Readable; parser next", "grade": "ready", "detail": "Three-rink WebTrac schedule exposes available/unavailable blocks. Facility requires phone reservation.", "url": "https://mnplymouthweb.myvscloud.com/webtrac/web/search.html?FRClass=Ice%20Arena&module=FR"}, {"name": "Richfield Ice Arena", "status": "Public schedule; ingestion blocked", "grade": "partial", "detail": "City publishes a dedicated Available Ice Schedule, but the ActiveCommunities calendar timed out in our current reader.", "url": "https://www.richfieldmn.gov/icearena"}];
+
+const timeOptions = [];
+for(let h=5; h<=23; h++) {
+  for(let m of [0,30]) {
+    const v = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+    const d = new Date('2000-01-01T'+v);
+    timeOptions.push([v,d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})]);
+  }
+}
+function fillTime(id, defaultVal) {
+  const sel=document.getElementById(id);
+  sel.innerHTML=timeOptions.map(([v,t])=>`<option value="${v}" ${v===defaultVal?'selected':''}>${t}</option>`).join('');
+}
+fillTime('startAfter','05:00'); fillTime('startBefore','23:30');
+
+const cities=[...new Set(listings.map(x=>x.city))].sort();
+document.getElementById('city').innerHTML='<option value="">All cities</option>'+cities.map(c=>`<option>${c}</option>`).join('');
+
+function fmtDate(s) {
+  const d=new Date(s+'T12:00:00');
+  return d.toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
+}
+function fmtTime(s) {
+  const d=new Date('2000-01-01T'+s);
+  return d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+}
+function mins(t) {const [h,m]=t.split(':').map(Number); return h*60+m}
+function render() {
+  const date=document.getElementById('date').value;
+  const after=document.getElementById('startAfter').value;
+  const before=document.getElementById('startBefore').value;
+  const max=Number(document.getElementById('maxPrice').value);
+  const city=document.getElementById('city').value;
+  const full=document.getElementById('fullOnly').checked;
+  let rows=listings.filter(x=>
+    (!date || x.date===date) &&
+    mins(x.start)>=mins(after) &&
+    mins(x.start)<=mins(before) &&
+    x.price<=max &&
+    (!city || x.city===city) &&
+    (!full || x.full_sheet)
+  ).sort((a,b)=>(a.date+a.start).localeCompare(b.date+b.start) || a.price-b.price);
+
+  document.getElementById('countText').textContent = `${rows.length} matching ${rows.length===1?'slot':'slots'}`;
+  const el=document.getElementById('results');
+  if(!rows.length) {
+    el.innerHTML='<div class="empty">No matching inventory in this snapshot. Try another date/time or remove a filter.</div>';
+    return;
+  }
+  el.innerHTML=rows.map(x=>`
+    <article class="card">
+      <div>
+        <div class="venue">${x.facility} <span class="badge">${x.source}</span>${x.full_sheet?'':'<span class="badge small">small sheet</span>'}</div>
+        <div class="sub">${x.sheet} • ${x.city}</div>
+      </div>
+      <div><div class="time">${fmtTime(x.start)}–${fmtTime(x.end)}</div><div class="date">${fmtDate(x.date)}</div></div>
+      <div><div class="price">${'$'}${x.price}</div><div class="per">listed price</div></div>
+      <a class="btn linkbtn" href="${x.source_url}" target="_blank" rel="noopener">View source ↗</a>
+    </article>`).join('');
+}
+document.getElementById('searchBtn').onclick=render;
+document.getElementById('resetBtn').onclick=()=>{
+  document.getElementById('date').value='';
+  document.getElementById('startAfter').value='05:00';
+  document.getElementById('startBefore').value='23:30';
+  document.getElementById('maxPrice').value='9999';
+  document.getElementById('city').value='';
+  document.getElementById('fullOnly').checked=false;
+  render();
+};
+document.getElementById('coverage').innerHTML=coverage.map(s=>`
+  <div class="source">
+    <strong>${s.name}</strong>
+    <small>${s.detail}</small>
+    <div class="status ${s.grade}">${s.status} • <a href="${s.url}" target="_blank">open source</a></div>
+  </div>`).join('');
+
+document.getElementById('saveAlert').onclick=()=>{
+  const alert={
+    email:document.getElementById('email').value,
+    area:document.getElementById('area').value,
+    window:document.getElementById('window').value,
+    maxPrice:document.getElementById('alertPrice').value,
+    savedAt:new Date().toISOString()
+  };
+  localStorage.setItem('sportsspace_alert',JSON.stringify(alert));
+  const box=document.getElementById('savedAlert');
+  box.style.display='block';
+  box.textContent=`Saved locally: ${alert.area || 'Any area'} • ${alert.window || 'Any time'} • ${alert.maxPrice ? '$'+alert.maxPrice+' max' : 'Any price'}`;
+};
+const prev=localStorage.getItem('sportsspace_alert');
+if(prev) {
+  const a=JSON.parse(prev);
+  ['email','area','window'].forEach(k=>document.getElementById(k).value=a[k]||'');
+  document.getElementById('alertPrice').value=a.maxPrice||'';
+}
+render();
+</script>
+</body>
+</html>

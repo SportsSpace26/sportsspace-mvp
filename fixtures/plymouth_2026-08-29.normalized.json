@@ -1,0 +1,72 @@
+{
+  "source": "Plymouth Ice Center",
+  "searched_date": "2026-08-29",
+  "minimum_window_minutes": 60,
+  "record_count": 4,
+  "records": [
+    {
+      "facility": "Plymouth Ice Center",
+      "sheet": "Rink A",
+      "city": "Plymouth",
+      "date": "2026-08-29",
+      "start": "07:00",
+      "end": "08:30",
+      "duration_minutes": 90,
+      "price": null,
+      "price_note": "Published 2026 Apr\u2013Aug rate: $240/hr + tax; call Plymouth to confirm.",
+      "booking_method": "Call to reserve",
+      "booking_phone": "763-509-5250",
+      "source": "Plymouth WebTrac / MyVSCloud",
+      "source_url": "https://mnplymouthweb.myvscloud.com/webtrac/web/search.html?FRClass=Ice%20Arena&module=FR",
+      "captured_at": "2026-09-07T12:51:42+00:00"
+    },
+    {
+      "facility": "Plymouth Ice Center",
+      "sheet": "Rink A",
+      "city": "Plymouth",
+      "date": "2026-08-29",
+      "start": "20:30",
+      "end": "24:00",
+      "duration_minutes": 210,
+      "price": null,
+      "price_note": "Published 2026 Apr\u2013Aug rate: $240/hr + tax; call Plymouth to confirm.",
+      "booking_method": "Call to reserve",
+      "booking_phone": "763-509-5250",
+      "source": "Plymouth WebTrac / MyVSCloud",
+      "source_url": "https://mnplymouthweb.myvscloud.com/webtrac/web/search.html?FRClass=Ice%20Arena&module=FR",
+      "captured_at": "2026-09-07T12:51:42+00:00"
+    },
+    {
+      "facility": "Plymouth Ice Center",
+      "sheet": "Rink B",
+      "city": "Plymouth",
+      "date": "2026-08-29",
+      "start": "20:45",
+      "end": "24:00",
+      "duration_minutes": 195,
+      "price": null,
+      "price_note": "Published 2026 Apr\u2013Aug rate: $240/hr + tax; call Plymouth to confirm.",
+      "booking_method": "Call to reserve",
+      "booking_phone": "763-509-5250",
+      "source": "Plymouth WebTrac / MyVSCloud",
+      "source_url": "https://mnplymouthweb.myvscloud.com/webtrac/web/search.html?FRClass=Ice%20Arena&module=FR",
+      "captured_at": "2026-09-07T12:51:42+00:00"
+    },
+    {
+      "facility": "Plymouth Ice Center",
+      "sheet": "Rink C",
+      "city": "Plymouth",
+      "date": "2026-08-29",
+      "start": "21:00",
+      "end": "24:00",
+      "duration_minutes": 180,
+      "price": null,
+      "price_note": "Published 2026 Apr\u2013Aug rate: $240/hr + tax; call Plymouth to confirm.",
+      "booking_method": "Call to reserve",
+      "booking_phone": "763-509-5250",
+      "source": "Plymouth WebTrac / MyVSCloud",
+      "source_url": "https://mnplymouthweb.myvscloud.com/webtrac/web/search.html?FRClass=Ice%20Arena&module=FR",
+      "captured_at": "2026-09-07T12:51:42+00:00"
+    }
+  ]
+}

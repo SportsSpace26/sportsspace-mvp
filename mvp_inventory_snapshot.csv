@@ -1,0 +1,31 @@
+facility,sheet,city,date,start,end,price,source,source_url,full_sheet
+Woodbury ICE,Woodbury Ice Rink,Woodbury,2026-09-08,16:30,17:30,250,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Bloomington Ice Garden,BIG 2,Bloomington,2026-09-08,16:45,17:45,275,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink A,Minneapolis,2026-09-08,17:45,18:45,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-08,18:00,19:00,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Blue Rink,St. Louis Park,2026-09-12,12:00,13:00,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Minnesota Made Ice Center Edina,North Rink,Edina,2026-09-12,12:30,13:50,346,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Blue Rink,St. Louis Park,2026-09-12,13:00,14:00,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Rosemount Community Center,Rosemount Ice Arena,Rosemount,2026-09-13,07:15,08:15,255,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center Edina,South Rink,Edina,2026-09-13,08:00,09:00,260,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-13,10:00,11:20,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-13,15:30,16:30,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Augsburg University Ice Arena,Rink A,Minneapolis,2026-09-13,16:00,17:00,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-13,16:15,17:15,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Blue Rink,St. Louis Park,2026-09-13,17:00,18:00,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Minnesota Made Ice Center Edina,South Rink,Edina,2026-09-13,17:30,18:50,346,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-13,19:00,20:00,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center Edina,South Rink,Edina,2026-09-13,19:00,20:20,346,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-13,20:15,21:15,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center Edina,South Rink,Edina,2026-09-13,20:30,21:50,346,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Rosemount Community Center,Rosemount Ice Arena,Rosemount,2026-09-14,14:30,15:30,175,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-14,16:10,17:10,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-14,20:50,21:50,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Polar Ice Arena,Polar Arena,North St. Paul,2026-09-19,14:15,15:15,230,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Polar Ice Arena,Polar Arena,North St. Paul,2026-09-19,15:30,16:30,230,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-19,16:30,17:30,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-20,08:45,09:45,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Minnesota Made Ice Center SLP,Red Rink,St. Louis Park,2026-09-20,10:20,11:20,160,Rinkfinder,https://rinkfinder.com/ice-for-sale/,False
+Minnesota Made Ice Center Edina,South Rink,Edina,2026-09-20,18:30,19:30,260,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Augsburg University Ice Arena,Rink B,Minneapolis,2026-09-20,19:00,20:00,235,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True
+Tartan Ice Arena,Tartan Arena,Oakdale,2026-09-20,19:30,20:30,230,Rinkfinder,https://rinkfinder.com/ice-for-sale/,True

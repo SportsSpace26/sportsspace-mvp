@@ -1,0 +1,60 @@
+Rink A
+Date Aug 29 | Facility Description Rink A | Location Description Plymouth Ice Center | Class Description Ice Arena
+Call to Reserve:
+7:00 am - 7:15 am
+7:15 am - 7:30 am
+7:30 am - 7:45 am
+7:45 am - 8:00 am
+8:00 am - 8:15 am
+8:15 am - 8:30 am
+8:30 am - 8:30 pmUnavailable
+8:30 pm - 8:45 pm
+8:45 pm - 9:00 pm
+9:00 pm - 9:15 pm
+9:15 pm - 9:30 pm
+9:30 pm - 9:45 pm
+9:45 pm - 10:00 pm
+10:00 pm - 10:15 pm
+10:15 pm - 10:30 pm
+10:30 pm - 10:45 pm
+10:45 pm - 11:00 pm
+11:00 pm - 11:15 pm
+11:15 pm - 11:30 pm
+11:30 pm - 11:45 pm
+11:45 pm - 12:00 am
+Rink B
+Date Aug 29 | Facility Description Rink B | Location Description Plymouth Ice Center | Class Description Ice Arena
+Call to Reserve:
+7:00 am - 7:15 am
+7:15 am - 8:45 pmUnavailable
+8:45 pm - 9:00 pm
+9:00 pm - 9:15 pm
+9:15 pm - 9:30 pm
+9:30 pm - 9:45 pm
+9:45 pm - 10:00 pm
+10:00 pm - 10:15 pm
+10:15 pm - 10:30 pm
+10:30 pm - 10:45 pm
+10:45 pm - 11:00 pm
+11:00 pm - 11:15 pm
+11:15 pm - 11:30 pm
+11:30 pm - 11:45 pm
+11:45 pm - 12:00 am
+Rink C
+Date Aug 29 | Facility Description Rink C | Location Description Plymouth Ice Center | Class Description Ice Arena
+Call to Reserve:
+7:00 am - 7:15 am
+7:15 am - 7:30 am
+7:30 am - 9:00 pmUnavailable
+9:00 pm - 9:15 pm
+9:15 pm - 9:30 pm
+9:30 pm - 9:45 pm
+9:45 pm - 10:00 pm
+10:00 pm - 10:15 pm
+10:15 pm - 10:30 pm
+10:30 pm - 10:45 pm
+10:45 pm - 11:00 pm
+11:00 pm - 11:15 pm
+11:15 pm - 11:30 pm
+11:30 pm - 11:45 pm
+11:45 pm - 12:00 am
