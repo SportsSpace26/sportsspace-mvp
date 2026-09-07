@@ -1,4 +1,4 @@
-.github/workflows/update-ice.yml
+YAML
 name: Update Plymouth ice
 
 on:
